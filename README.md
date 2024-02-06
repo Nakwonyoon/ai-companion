@@ -9,6 +9,8 @@ First, run the development server:
 npm install @clerk/nextjs
 npm install @radix-ui/react-icons
 npx shadcn-ui@latest add dropdown-menu
+npx shadcn-ui@latest add input
+npx shadcn-ui@latest add sheet
 
 
 npm run dev
