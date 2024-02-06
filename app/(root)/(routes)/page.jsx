@@ -1,9 +1,11 @@
-import { UserButton } from "@clerk/nextjs";
- 
-export default function Home() {
+import { SearchInput } from "@/components/search-input"
+
+const RootPage = () => {
   return (
-    <div className="h-screen">
-      <UserButton afterSignOutUrl="/"/>
+    <div>
+      <SearchInput />
     </div>
   )
 }
+
+export default RootPage
