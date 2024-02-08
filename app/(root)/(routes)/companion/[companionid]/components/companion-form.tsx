@@ -2,12 +2,13 @@
 
 import { Companion, Category } from "@prisma/client";
 import { useForm } from "react-hook-form";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Separator } from "@/components/ui/separator";
 import { ImageUpload } from "@/components/image-upload";
 
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Input } from "@/components/ui/input";
 
 interface CompanionFormProps {
   initialData: Companion | null;
@@ -86,6 +87,53 @@ export const CompanionForm = ({
               </FormItem>
             )} 
             />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <FormField
+                name="name"
+                control={form.control}
+                render ={ ({ field}) =>(
+                  <FormItem className="col-span-2 md:col-span-1"> 
+                    <FormLabel>
+                      Name
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                       disabled={isLoading}
+                       placeholder="Son of God "
+                       {...field}
+                      />
+                    </FormControl>
+                    <FormDescription>
+                    This is how your ai compainion will be named
+                    </FormDescription>
+                    <FormMessage/>
+                  </FormItem>
+                ) }
+              />
+                <FormField
+                name="description"
+                control={form.control}
+                render ={ ({ field}) =>(
+                  <FormItem className="col-span-2 md:col-span-1"> 
+                    <FormLabel>
+                      Description
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                       disabled={isLoading}
+                       placeholder="Jesus Christ"
+                       {...field}
+                      />
+                    </FormControl>
+                    <FormDescription>
+                     Short description for your AI Companion
+                    </FormDescription>
+                    <FormMessage/>
+                  </FormItem>
+                ) }
+              />
+            </div>
 
         </form>
       </Form>
